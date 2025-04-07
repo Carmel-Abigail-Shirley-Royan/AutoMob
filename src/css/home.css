@@ -16,7 +16,7 @@
 .main-content {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 75vh;
     /* Makes the main content take up the full height of the viewport */
 }
 
@@ -69,7 +69,9 @@
     /* Adjust the icon size */
     height: auto;
 }
-
+.serv{
+    margin-left: 45%;
+}
 /* Add hover effect for better interaction */
 .carousel-control-prev:hover,
 .carousel-control-next:hover {

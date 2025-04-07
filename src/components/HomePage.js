@@ -37,7 +37,7 @@ const HomePage = () => {
                                     <h3 style={{ textTransform: 'uppercase', color: 'white', fontWeight: 'bold' }}>Looking for car service?</h3>
                                     <p>Get a free quote and let the professionals do all the work</p>
                                     <button className="explore-btn">
-                                    <Link to="/services" className="explore-btn">Explore More</Link>
+                                        <Link to="/services" className="explore-btn">Explore More</Link>
 
                                     </button>
                                 </div>
@@ -48,7 +48,7 @@ const HomePage = () => {
                                     <h3 style={{ textTransform: 'uppercase', color: 'white', fontWeight: 'bold' }}>Looking for car service?</h3>
                                     <p>Get a free quote and let the professionals do all the work</p>
                                     <button className="explore-btn">
-                                    <Link to="/services" className="explore-btn">Explore More</Link>                                    </button>
+                                        <Link to="/services" className="explore-btn">Explore More</Link>                                    </button>
                                 </div>
                             </div>
                             <div className="carousel-item">
@@ -57,7 +57,7 @@ const HomePage = () => {
                                     <h3 style={{ textTransform: 'uppercase', color: 'white', fontWeight: 'bold' }}>Looking for car service?</h3>
                                     <p>Get a free quote and let the professionals do all the work</p>
                                     <button className="explore-btn">
-                                    <Link to="/services" className="explore-btn">Explore More</Link>                                    
+                                        <Link to="/services" className="explore-btn">Explore More</Link>
                                     </button>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@ const HomePage = () => {
 
                     <div className="homepage">
                         <div>
-                        <img src={Home3} height="400px" width="500px" style={{ marginRight: '70px' }} alt="Car Service" />
+                            <img src={Home3} height="400px" width="500px" style={{ marginRight: '70px' }} alt="Car Service" />
                         </div>
                         <div className='content' style={{ width: '40%', marginTop: '20px' }}>
                             <p>Enjoy convenient car repair and maintenance at your home or office. It's as easy as 1-2-3.</p>
@@ -95,6 +95,9 @@ const HomePage = () => {
                             <button className="explore-btn" >
                                 <Link to="/booking" className="explore-btn">Book Service</Link>
                             </button>
+                            {/* <button className="explore-btn" style={{paddingLeft: "20px"}}>
+                                <Link to="/services" className="explore-btn">View Service</Link>
+                            </button> */}
                         </div>
                     </div>
                 </section>
