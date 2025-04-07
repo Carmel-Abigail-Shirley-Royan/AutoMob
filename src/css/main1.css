@@ -1,0 +1,34 @@
+body {
+    background-color: #dedbdb;
+}
+
+.maintainance {
+    display: flex;
+    gap: 20px;
+    width: 70%;
+    height: auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 5% auto;
+}
+
+.maintainance img {
+    border-radius: 10px;
+    max-width: 100%;
+    height: 400px;
+}
+
+.about-text {
+    max-width: 50%;
+    text-align: left;
+}
+.about-text p {
+margin-bottom: 20px;
+line-height: 1.5;
+}
+.about-text p a{
+    color: purple;
+    text-decoration-line: underline;
+}

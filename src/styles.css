@@ -1,0 +1,640 @@
+/* General Styles */
+@font-face {
+    font-family: 'CustomFont';
+    src: url("./components/folder/Fonts/Montserrat-Medium.ttf");
+}
+
+body {
+    font-family: 'CustomFont', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(to right, #225c97, #1f67af);
+    color: #fff;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.homepage {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.homepage ul {
+    list-style-type: none;
+    padding-left: none;
+
+}
+
+.homepage li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.circle {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: white;
+    /* Circle color */
+    color: black;
+    /* Text color */
+    text-align: center;
+    line-height: 35px;
+    /* Centers the text vertically */
+    margin-right: 10px;
+    /* Space between circle and text */
+    font-weight: bold;
+    border: 1px solid black;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list a:hover {
+    background-color: rgb(232, 96, 118);
+    text-decoration: none;
+    padding: 20px;
+}
+
+.nav-list li {
+    display: inline;
+    padding-right: 10px;
+}
+
+.nav-list a {
+    color: #fff;
+}
+
+/* Main Content */
+
+
+.about-us {
+    text-align: center;
+    padding: 0;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.about-image {
+    max-width: 300px;
+    background-image: none;
+    border-radius: 5px;
+}
+
+.about-text {
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.about-text ul li {
+    text-align: left;
+}
+
+.carousel,
+.carousel-inner {
+    height: 100%;
+}
+
+.carousel-item {
+    height: 100%;
+    background-position: center center;
+    background-size: cover;
+}
+
+
+.explore-btn {
+    background-color: rgb(229, 44, 44);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.explore-btn a {
+    text-decoration: none;
+    text-align: center;
+    padding: 5px;
+}
+
+.explore-btn:hover {
+    background-color: rgb(210, 44, 44)
+}
+
+.img-row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.img-row img {
+    width: 200px;
+    height: auto;
+}
+
+/* Footer */
+.footer {
+    background-color: #004D99;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.main-content form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[list],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#country-code {
+    width: 100px;
+    /* Set the desired width */
+    border: 1px solid #ccc;
+    /* Optional: for better appearance */
+    border-radius: 4px;
+    /* Optional: rounded corners */
+    /* Optional: font size */
+}
+
+.grp-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+input[type="radio"] {
+    margin-right: 2px;
+}
+
+.carousel-inner img {
+    height: 600px;
+    /* Adjust to your preferred height */
+    object-fit: cover;
+    /* Ensures the image covers the area without distortion */
+}
+
+
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-size: 16px;
+}
+
+.main-content form button {
+    width: 200px;
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: #2c8f26;
+    /* Yellow hover */
+}
+
+button a:hover {
+    color: #333;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Footer */
+
+.footer p {
+    margin: 0;
+}
+
+/* Responsive Design */
+/* @media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .main-content {
+        margin: 10px;
+        padding: 15px;
+    }
+} */
+@media (max-width: 1440px) {
+    .carousel-item img {
+        height: 700px;
+        /* Adjust height as per your requirement */
+
+    }
+}
+
+@media (max-width: 1024px) {
+    .maintainance {
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .maintainance img {
+        width: 100%;
+        height: auto;
+    }
+
+    .carousel-item img {
+        height: 500px;
+        /* Adjust height as per your requirement */
+
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .formpage {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[list],
+    select {
+        width: 90%;
+    }
+
+    #country-code {
+        width: 60px;
+    }
+
+
+
+    button {
+        width: 100%;
+    }
+
+    .img-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .img-row img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+
+    .formpage {
+        flex-direction: column;
+        align-items: center;
+        /* Centers content in the column */
+        gap: 20px;
+    }
+
+    .formpage>div {
+        width: 100%;
+        /* Ensures both form and image take full width */
+        text-align: center;
+        /* Centers content inside each block */
+    }
+
+    .formpage img {
+        width: 100%;
+        max-width: 400px;
+        /* Optional: Limits the maximum width of the image */
+        height: auto;
+    }
+
+    footer {
+        position: relative;
+        bottom: unset;
+    }
+
+    .img-row {
+        flex-direction: column;
+    }
+
+    .link {
+        width: 300px;
+    }
+
+    .card img {
+        width: 200px;
+        height: auto;
+    }
+
+    .maintainance {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .maintainance img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .homepage {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+
+    .homepage img {
+        width: 250px;
+        height: auto;
+        margin-left: 70px;
+    }
+
+    .content {
+        margin: 0 auto;
+    }
+
+
+}
+
+@media only screen and (max-width: 480px) {
+
+    .homepage {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        width: 100%;
+    }
+
+    .homepage img {
+        width: 200px;
+        height: auto;
+        margin-left: 70px;
+    }
+
+    .homepage ul {
+        justify-content: space-around;
+        flex-direction: column;
+        /* Stack items vertically */
+        width: 100%;
+        gap: 10px;
+        /* Reduce gap between items */
+        padding: 0px;
+    }
+
+    .explore-btn {
+        align-items: center;
+        width: 100%;
+    }
+
+    .homepage li span.circle {
+        width: 30px;
+        /* Adjust circle size */
+        height: 30px;
+    }
+
+    .homepage li {
+        font-size: 16px;
+        /* Adjust font size for smaller screens */
+        width: 100%;
+        /* Make each list item take up the full width */
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 2px;
+        /* Adjust the icon size */
+        height: auto;
+    }
+
+    .circle {
+        width: 100px;
+        height: auto;
+    }
+
+    .carousel-item {
+        height: 60vh;
+        width: 100%;
+    }
+
+    .carousel-item img {
+        object-fit: contain;
+    }
+
+    .carousel-caption {
+        font-size: 12px;
+        bottom: 5%;
+        padding: 8px;
+    }
+
+    .carousel-caption h3 {
+        font-size: 16px;
+        /* Smaller heading text */
+    }
+
+    .carousel-caption p {
+        font-size: 14px;
+        /* Smaller paragraph text */
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 20px;
+        height: 20px;
+        /* Smaller navigation icons */
+    }
+
+    .header {
+        padding: 10px;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    .nav-list {
+        gap: 5px;
+    }
+
+    section {
+        width: 100%;
+    }
+
+    
+
+    .carousel-item {
+        height: 100%;
+        /* Ensure the carousel item takes full height of the container */
+        width: 100%;
+        position: relative;
+        /* Position the carousel caption properly */
+    }
+
+    .carousel-item img {
+        width: 100%;
+        /* Full width of the container */
+        height: 100%;
+        /* Full height of the container */
+        object-fit: contain;
+        /* Ensure the image is fully contained and not cropped */
+    }
+
+    .carousel-caption {
+        position: absolute;
+        /* Position the caption over the image */
+        bottom: 20px;
+        /* Adjust to place it near the bottom */
+        left: 0;
+        right: 0;
+        text-align: center;
+        color: white;
+        background: rgba(0, 0, 0, 0.5);
+        /* Semi-transparent background for better text visibility */
+        padding: 10px;
+    }
+
+    .img-row {
+        flex-direction: column;
+    }
+
+    .img-row .card {
+        width: 100%;
+    }
+
+    .card img {
+        width: 200px;
+        height: auto;
+    }
+
+    .formpage {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .formpage>div {
+        width: 100%;
+    }
+
+    .maintainance {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .maintainance img {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    footer {
+        width: 100%;
+    }
+
+    .formpage img {
+        max-width: 300px;
+        width: 100%;
+        /* Ensures the image scales properly */
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .book {
+        margin-bottom: 15%;
+    }
+
+    .explore-btn {
+        width: 100%;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[list],
+    select {
+        width: 100%;
+    }
+}
