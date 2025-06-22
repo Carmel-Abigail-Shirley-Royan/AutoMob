@@ -26,7 +26,7 @@ const Booking = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3000/api/bookings", {
+      const response = await fetch("https://automob.onrender.com/api/bookings", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
