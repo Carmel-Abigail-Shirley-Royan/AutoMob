@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
-import bookingRoutes from "./routes/bookings.js";
+import bookingRoutes from "./routes/booking.js";
 
 dotenv.config(); // Load variables from .env
 
