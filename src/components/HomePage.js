@@ -93,7 +93,7 @@ const HomePage = () => {
                                 <p>No more waiting needed, our representative will take care of everything on their own</p>
                             </ul>
                             <button className="explore-btn" >
-                                <Link to="/booking" className="explore-btn">Book Service</Link>
+                                <Link to="/services" className="explore-btn">View Service</Link>
                             </button>
                             {/* <button className="explore-btn" style={{paddingLeft: "20px"}}>
                                 <Link to="/services" className="explore-btn">View Service</Link>

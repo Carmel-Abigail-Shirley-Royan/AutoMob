@@ -1,13 +1,9 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import { Link, useNavigate } from "react-router-dom";
 import Car from './folder/images/car.png';
 import '../styles.css';
-
 import '../css/booking.css';
 import Book from './folder/assets/booking.jpg';
-
-import { db } from '../firebase';
-import { collection, addDoc } from "firebase/firestore";
 
 const Booking = () => {
   const [formData, setFormData] = useState({
@@ -20,7 +16,7 @@ const Booking = () => {
     countryCode: "",
   });
 
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,14 +26,23 @@ const Booking = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const docRef = await addDoc(collection(db, "bookings"), formData);
-      console.log("Document written with ID: ", docRef.id);
-      alert("Booking successful!");
-      
-      // Navigate to the appointment page after successful submission
-      navigate("/appointment");
-    } catch (e) {
-      console.error("Error adding document: ", e);
+      const response = await fetch("http://localhost:3000/api/bookings", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        alert("Booking successful!");
+        navigate("/appointment");
+      } else {
+        const errorData = await response.json();
+        alert("Booking failed: " + errorData.message);
+      }
+    } catch (error) {
+      console.error("Error submitting booking:", error);
       alert("Error booking service. Please try again.");
     }
   };
@@ -58,6 +63,7 @@ const Booking = () => {
           </ul>
         </nav>
       </header>
+
       <main>
         <section className="book">
           <div>
@@ -67,33 +73,34 @@ const Booking = () => {
               <span style={{ color: "black" }}>Service</span>
             </h4>
           </div>
+
           <div className="formpage">
             <div>
               <form onSubmit={handleSubmit}>
                 <div>
                   <label htmlFor="name">Name:</label>
-                  <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Enter your name" required />
+                  <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required placeholder="Enter your name" />
                 </div>
                 <div>
                   <label htmlFor="email">E-mail:</label>
-                  <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter your mail" required />
+                  <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required placeholder="Enter your mail" />
                 </div>
                 <div>
                   <label htmlFor="phoneNumber">Phone Number:</label>
                   <div className="grp-form">
                     <select id="countryCode" name="countryCode" value={formData.countryCode} onChange={handleChange} required>
-                      <option value="" disabled selected>Code</option>
+                      <option value="" disabled>Code</option>
                       <option value="+91">+91 (India)</option>
                       <option value="+1">+1 (USA)</option>
                       <option value="+44">+44 (UK)</option>
                     </select>
-                    <input type="number" id="phoneNumber" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} placeholder="Enter your mobile number" required />
+                    <input type="number" id="phoneNumber" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} required placeholder="Enter your mobile number" />
                   </div>
                 </div>
                 <div>
                   <label htmlFor="service">Choose a Service:</label>
                   <select id="service" name="service" value={formData.service} onChange={handleChange} required>
-                    <option value="" disabled selected>Select an option</option>
+                    <option value="" disabled>Select an option</option>
                     <option value="repair">Car Repair</option>
                     <option value="maintenance">Maintenance</option>
                     <option value="washing">Car Washing</option>
@@ -102,7 +109,7 @@ const Booking = () => {
                 </div>
                 <div>
                   <label htmlFor="carMake">Car Make (Required):</label>
-                  <input list="car-makes" id="carMake" name="carMake" value={formData.carMake} onChange={handleChange} placeholder="Select or type a car make" required />
+                  <input list="car-makes" id="carMake" name="carMake" value={formData.carMake} onChange={handleChange} required placeholder="Select or type a car make" />
                   <datalist id="car-makes">
                     <option value="Mahindra" />
                     <option value="Honda" />
@@ -128,8 +135,9 @@ const Booking = () => {
           </div>
         </section>
       </main>
+
       <footer className="footer">
-        <p>Copyright &copy; 2020 AutoMob-Mechanic. All Rights Reserved</p>
+        <p>&copy; 2020 AutoMob-Mechanic. All Rights Reserved</p>
       </footer>
     </>
   );

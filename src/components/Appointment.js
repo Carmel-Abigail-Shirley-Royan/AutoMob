@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // import useNavigate
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios'; // Axios for backend calls
 import '../styles.css';
 import Car from './folder/images/car.png';
-import { db } from '../firebase'; 
-import { collection, addDoc } from 'firebase/firestore';
 import '../css/booking.css';
 import Appoint from './folder/assets/schedule_appointment.jpg';
 
@@ -15,7 +14,8 @@ const Appointment = () => {
     state: '',
     notification: { email: false, sms: false },
   });
-  const navigate = useNavigate(); // Initialize navigate function
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -29,29 +29,28 @@ const Appointment = () => {
     }
   };
 
+  const isFutureDate = (date) => {
+    const today = new Date().setHours(0, 0, 0, 0);
+    const selected = new Date(date).setHours(0, 0, 0, 0);
+    return selected >= today;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!isFutureDate(formData.appointmentDate)) {
+      alert("Please choose a future date for your appointment.");
+      return;
+    }
+
     try {
-      // Add the appointment data to Firebase
-      await addDoc(collection(db, "appointments"), {
-        appointmentDate: formData.appointmentDate,
-        address: formData.address,
-        city: formData.city,
-        state: formData.state,
-        notification: formData.notification,
-      });
-      // Clear the form after submission
-      setFormData({
-        appointmentDate: "",
-        address: "",
-        city: "",
-        state: "",
-        notification: { email: false, sms: false },
-      });
-      // Redirect to the success page
-      navigate('/success');
+      const response = await axios.post('http://localhost:5000/api/appointments', formData);
+      if (response.status === 200) {
+        alert("Appointment booked successfully!");
+        navigate('/success');
+      }
     } catch (error) {
-      console.error("Error adding document: ", error);
+      console.error("Error booking appointment:", error);
       alert("Error booking appointment. Please try again.");
     }
   };
@@ -72,6 +71,7 @@ const Appointment = () => {
           </ul>
         </nav>
       </header>
+
       <main>
         <section className="book">
           <div>
@@ -133,7 +133,7 @@ const Appointment = () => {
                     <option value="Gujarat">Gujarat</option>
                     <option value="Goa">Goa</option>
                     <option value="Tamil Nadu">Tamil Nadu</option>
-                    {/* Add more states */}
+                    {/* Add more states if needed */}
                   </select>
                 </div>
                 <div>
@@ -168,6 +168,7 @@ const Appointment = () => {
           </div>
         </section>
       </main>
+
       <footer className="footer">
         <p>Copyright &copy; 2020 AutoMob-Mechanic. All Rights Reserved</p>
       </footer>
